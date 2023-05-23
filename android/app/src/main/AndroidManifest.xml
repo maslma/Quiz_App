@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.quize.quize">
+    package="com.dev.maslma">
    <application
-        android:label="quize"
+        android:label="Quiz"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
