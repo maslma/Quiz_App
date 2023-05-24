@@ -15,14 +15,13 @@ class QuestionCubit extends Cubit<QuestionState> {
   bool showResult = false;
   List<QuestionModel>? questionsModel;
 
+  final PageController pageController = PageController();
+
+
   void setShowResult(bool value) {
     showResult = value;
     emit(SetShowState());
   }
-
-  // void setAnswerIndex(List<int?> list) {
-  //   answersIndex = list;
-  // }
 
   double calculateGrade() {
     if (questions == null || questions!.isEmpty || answersIndex.isEmpty) {
@@ -45,7 +44,10 @@ class QuestionCubit extends Cubit<QuestionState> {
 
   void setAnswer(int index, int value) {
     answersIndex[index] = value;
-    emit(SetAnswerState());
+    pageController.nextPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.ease,
+    );    emit(SetAnswerState());
   }
 
   Future<void> createDatabase() async {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quiz/presentaion/presentation_managers/colors.dart';
 
 class AnswerItem extends StatelessWidget {
@@ -16,14 +17,14 @@ class AnswerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
       decoration: BoxDecoration(
           color: isSelected ?? false ? AppColor.primary.withOpacity(0.3) : null,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
           border: Border.all(color: AppColor.primary)),
       child: Text(
         answer,
-        style: const TextStyle(fontSize: 18),
+        style:  TextStyle(fontSize: 18.sp),
       ),
     );
   }
