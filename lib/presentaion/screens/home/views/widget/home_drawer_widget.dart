@@ -21,7 +21,7 @@ class HomeDrawerWidget extends StatelessWidget {
           return SafeArea(
             child: Drawer(
               elevation: 25,
-              child: ListView(
+              child: Column(
                 children: [
                   UserAccountsDrawerHeader(
                     currentAccountPicture: CircleAvatar(

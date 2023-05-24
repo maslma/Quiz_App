@@ -3,14 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quiz/presentaion/presentation_managers/colors.dart';
 
 class AnswerWidget extends StatelessWidget {
+  final String answer;
+  final bool isCorrect;
+
   const AnswerWidget({
     super.key,
     required this.answer,
     required this.isCorrect,
   });
 
-  final String answer;
-  final bool isCorrect;
+
 
   @override
   Widget build(BuildContext context) {

@@ -9,114 +9,20 @@ import 'package:quiz/presentaion/screens/add_question/views/widget/answer_field_
 
 class AddQuestion extends StatefulWidget {
   const AddQuestion({Key? key}) : super(key: key);
-
   @override
   State<AddQuestion> createState() => _AddQuestionState();
 }
 
 class _AddQuestionState extends State<AddQuestion> {
+
   List<String> items = ['A', 'B', 'C', 'D'];
   late String _selectedItem;
-  late AnswerField first;
-  late AnswerField second;
-  late AnswerField third;
-  late AnswerField fourth;
 
-  late TextEditingController questionController;
-  late TextEditingController firstController;
-  late TextEditingController secondController;
-  late TextEditingController thirdController;
-  late TextEditingController fourthController;
-
-  GlobalKey<FormState> key=GlobalKey<FormState>();
 
   @override
   void initState() {
     _selectedItem = items[0];
-    questionController = TextEditingController();
-    firstController = TextEditingController();
-    secondController = TextEditingController();
-    thirdController = TextEditingController();
-    fourthController = TextEditingController();
-
-    first = AnswerField(
-
-      onSubmitted: (String) {},
-      leading: 'A',
-      hint: 'First Answer',
-      label: 'First Answer',
-      background: Colors.orange,
-      controller: firstController,
-    );
-    second = AnswerField(
-      onSubmitted: (String) {},
-      leading: 'B',
-      hint: 'Second Answer',
-      label: 'Second Answer',
-      background: Colors.green,
-      controller: secondController,
-    );
-    third = AnswerField(
-      onSubmitted: (String) {},
-      leading: 'C',
-      hint: 'Third Answer',
-      label: 'Third Answer',
-      background: Colors.grey,
-      controller: thirdController,
-    );
-    fourth = AnswerField(
-      textInputAction: TextInputAction.done,
-      onSubmitted: (String) {},
-      leading: 'D',
-      hint: 'Fourth Answer',
-      label: 'Fourth Answer',
-      background: Colors.pink,
-      controller: fourthController,
-    );
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    questionController.dispose();
-    firstController.dispose();
-    secondController.dispose();
-    thirdController.dispose();
-    fourthController.dispose();
-
-    super.dispose();
-  }
-
-  int chatToInt(String char) {
-    switch (char) {
-      case "A":
-        {
-          return 0;
-        }
-      case "B":
-        {
-          return 1;
-        }
-      case "C":
-        {
-          return 2;
-        }
-      case "D":
-        {
-          return 3;
-        }
-    }
-    return 0;
-  }
-  void reset(){
-    questionController.clear();
-    firstController.clear();
-    secondController.clear();
-    thirdController.clear();
-    fourthController.clear();
-    _selectedItem = items[0];
-    setState(() {
-    });
   }
   @override
   Widget build(BuildContext context) {
@@ -138,7 +44,7 @@ class _AddQuestionState extends State<AddQuestion> {
             ),
           ),
           body: Form(
-            key: key,
+            key: cubit.formKey,
             child: Padding(
               padding:  EdgeInsets.symmetric(horizontal: 20.w),
               child: SingleChildScrollView(
@@ -157,26 +63,54 @@ class _AddQuestionState extends State<AddQuestion> {
                         hint: 'Enter the question',
                         label: 'Question',
                         isQuestion: true,
-                        controller: questionController,
+                        controller:cubit.questionController,
                       ),
                     ),
-                    // isPortrait ?
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        first,
+                        AnswerField(
+                          onSubmitted: (String) {},
+                          leading: 'A',
+                          hint: 'First Answer',
+                          label: 'First Answer',
+                          background: Colors.orange,
+                          controller: cubit.firstController,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        second,
+                        AnswerField(
+                          onSubmitted: (String) {},
+                          leading: 'B',
+                          hint: 'Second Answer',
+                          label: 'Second Answer',
+                          background: Colors.green,
+                          controller: cubit.secondController,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        third,
+                        AnswerField(
+                          onSubmitted: (String) {},
+                          leading: 'C',
+                          hint: 'Third Answer',
+                          label: 'Third Answer',
+                          background: Colors.grey,
+                          controller: cubit.thirdController,
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        fourth,
+                        AnswerField(
+                          textInputAction: TextInputAction.done,
+                          onSubmitted: (String) {},
+                          leading: 'D',
+                          hint: 'Fourth Answer',
+                          label: 'Fourth Answer',
+                          background: Colors.pink,
+                          controller: cubit.fourthController,
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -219,16 +153,16 @@ class _AddQuestionState extends State<AddQuestion> {
                         fontSized: 20.sp,
                         padding:  EdgeInsets.only(top: 30.h),
                         onTap: () async {
-                          if(key.currentState!=null&&key.currentState!.validate()){
+                          if( cubit.formKey.currentState!=null&& cubit.formKey.currentState!.validate()){
                             await cubit.insertToDataBase(
-                              title: questionController.text,
-                              first: firstController.text,
-                              second: secondController.text,
-                              third: thirdController.text,
-                              fourth: fourthController.text,
-                              correct: chatToInt(_selectedItem),
+                              title: cubit.questionController.text,
+                              first:  cubit.firstController.text,
+                              second:  cubit.secondController.text,
+                              third:  cubit.thirdController.text,
+                              fourth: cubit. fourthController.text,
+                              correct:  cubit.chatToInt( _selectedItem),
                             ).then((value)=> Navigator.of(context).pop());
-                            reset();
+                            cubit.reset();
 
                           }
 

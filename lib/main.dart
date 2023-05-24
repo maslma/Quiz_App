@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Quiz App',
               theme: ThemeData(primarySwatch: AppColor.primary as MaterialColor),
-              home: const HomePage(),
+              home: const HomeView(),
             ),
           );
         });

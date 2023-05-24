@@ -4,8 +4,8 @@ import 'package:quiz/domain/user_model.dart';
 import 'package:quiz/presentaion/screens/home/views/widget/home_body_widget.dart';
 import 'package:quiz/presentaion/screens/home/views/widget/home_drawer_widget.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeView extends StatelessWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

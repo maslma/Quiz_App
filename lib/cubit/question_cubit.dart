@@ -14,9 +14,49 @@ class QuestionCubit extends Cubit<QuestionState> {
   List<int?> answersIndex = [];
   bool showResult = false;
   List<QuestionModel>? questionsModel;
-
   final PageController pageController = PageController();
 
+  List<String> items = ['A', 'B', 'C', 'D'];
+  String? selectedItem;
+
+ final questionController = TextEditingController();
+ final firstController = TextEditingController();
+ final secondController = TextEditingController();
+ final thirdController = TextEditingController();
+ final fourthController = TextEditingController();
+
+ final GlobalKey<FormState> formKey=GlobalKey<FormState>();
+
+
+  int chatToInt(String char) {
+    switch (char) {
+      case "A":
+        {
+          return 0;
+        }
+      case "B":
+        {
+          return 1;
+        }
+      case "C":
+        {
+          return 2;
+        }
+      case "D":
+        {
+          return 3;
+        }
+    }
+    return 0;
+  }
+  void reset(){
+    questionController.clear();
+    firstController.clear();
+    secondController.clear();
+    thirdController.clear();
+    fourthController.clear();
+    selectedItem = items[0];
+  }
 
   void setShowResult(bool value) {
     showResult = value;
