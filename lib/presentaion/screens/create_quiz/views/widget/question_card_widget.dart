@@ -26,43 +26,39 @@ class QuestionCardWidget extends StatelessWidget {
           color: AppColor.lightBackground),
       child: Column(
         children: [
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                      child: Text(
-                    title,
-                    style: TextStyle(fontSize: 22.sp),
-                  )),
-                  IconButton(
-                    onPressed: deleteQuestion,
-                    icon: const Icon(
-                      Icons.delete,
-                      color: AppColor.icon,
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return AnswerWidget(
-                    answer: answers[index],
-                    isCorrect: index == correctIndex,
-                  );
-                },
-                separatorBuilder: (context, index) => SizedBox(
-                  height: 10.h,
+              Expanded(
+                  child: Text(
+                title,
+                style: TextStyle(fontSize: 22.sp),
+              )),
+              IconButton(
+                onPressed: deleteQuestion,
+                icon: const Icon(
+                  Icons.delete,
+                  color: AppColor.icon,
                 ),
-                itemCount: answers.length,
               )
             ],
+          ),
+          SizedBox(
+            height: 20.h,
+          ),
+          ListView.separated(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return AnswerWidget(
+                answer: answers[index],
+                isCorrect: index == correctIndex,
+              );
+            },
+            separatorBuilder: (context, index) => SizedBox(
+              height: 10.h,
+            ),
+            itemCount: answers.length,
           )
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quiz/presentaion/global_widget/text_from_filed.dart';
 import 'package:quiz/presentaion/presentation_managers/colors.dart';
 
@@ -33,8 +34,8 @@ class AnswerField extends StatelessWidget {
             style: const TextStyle(color: AppColor.background, fontSize: 22),
           ),
         ),
-        const SizedBox(
-          width: 15,
+         SizedBox(
+          width: 15.w,
         ),
         Expanded(
           child: CustomTextField(

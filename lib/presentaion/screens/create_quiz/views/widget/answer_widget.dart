@@ -16,7 +16,7 @@ class AnswerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color background = isCorrect ? AppColor.correct : AppColor.background;
+    Color background = isCorrect ? AppColor.correctColor : AppColor.background;
     Color textColor = isCorrect ? AppColor.background : AppColor.darkBackground;
     return Container(
       padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),

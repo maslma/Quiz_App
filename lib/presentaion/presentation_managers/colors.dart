@@ -7,5 +7,5 @@ class AppColor {
   static const Color darkBackground=Colors.black;
   static const Color lightBackground=Color(0xffeeeeee);
   static const Color icon=Colors.grey;
-  static const Color correct=Colors.green;
+  static const Color correctColor=Colors.green;
 }

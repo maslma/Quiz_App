@@ -66,52 +66,47 @@ class _AddQuestionState extends State<AddQuestion> {
                         controller:cubit.questionController,
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AnswerField(
-                          onSubmitted: (String) {},
-                          leading: 'A',
-                          hint: 'First Answer',
-                          label: 'First Answer',
-                          background: Colors.orange,
-                          controller: cubit.firstController,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        AnswerField(
-                          onSubmitted: (String) {},
-                          leading: 'B',
-                          hint: 'Second Answer',
-                          label: 'Second Answer',
-                          background: Colors.green,
-                          controller: cubit.secondController,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        AnswerField(
-                          onSubmitted: (String) {},
-                          leading: 'C',
-                          hint: 'Third Answer',
-                          label: 'Third Answer',
-                          background: Colors.grey,
-                          controller: cubit.thirdController,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        AnswerField(
-                          textInputAction: TextInputAction.done,
-                          onSubmitted: (String) {},
-                          leading: 'D',
-                          hint: 'Fourth Answer',
-                          label: 'Fourth Answer',
-                          background: Colors.pink,
-                          controller: cubit.fourthController,
-                        ),
-                      ],
+                    AnswerField(
+                      onSubmitted: (String) {},
+                      leading: 'A',
+                      hint: 'First Answer',
+                      label: 'First Answer',
+                      background: Colors.orange,
+                      controller: cubit.firstController,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    AnswerField(
+                      onSubmitted: (String) {},
+                      leading: 'B',
+                      hint: 'Second Answer',
+                      label: 'Second Answer',
+                      background: Colors.green,
+                      controller: cubit.secondController,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    AnswerField(
+                      onSubmitted: (String) {},
+                      leading: 'C',
+                      hint: 'Third Answer',
+                      label: 'Third Answer',
+                      background: Colors.grey,
+                      controller: cubit.thirdController,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    AnswerField(
+                      textInputAction: TextInputAction.done,
+                      onSubmitted: (String) {},
+                      leading: 'D',
+                      hint: 'Fourth Answer',
+                      label: 'Fourth Answer',
+                      background: Colors.pink,
+                      controller: cubit.fourthController,
                     ),
                     SizedBox(
                       height: 20.h,
